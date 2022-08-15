@@ -56,7 +56,7 @@ func init() {
 	// dummyCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 func dummy(args []string) {
-	viper.AddConfigPath(args[1])
+	viper.AddConfigPath(args[0])
 	viper.SetConfigName("config")
 	err := viper.ReadInConfig()
 	if err != nil {

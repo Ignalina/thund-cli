@@ -40,11 +40,12 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("streamcmd called")
+		streamCmd(args)
 	},
 }
 
 func streamCmd(args []string) {
-	viper.AddConfigPath(args[1])
+	viper.AddConfigPath(args[0])
 	viper.SetConfigName("config")
 	err := viper.ReadInConfig()
 	if err != nil {
