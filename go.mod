@@ -3,7 +3,7 @@ module github.com/ignalina/thund-cli
 go 1.18
 
 require (
-	github.com/ignalina/thund v0.1.11
+	github.com/ignalina/thund v0.1.18
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/viper v1.12.0
 )
