@@ -20,6 +20,9 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/ignalina/thund/api"
+	"github.com/ignalina/thund/bundledImpl"
+	"github.com/spf13/viper"
 
 	"github.com/spf13/cobra"
 )
@@ -36,7 +39,25 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("csv2delta called")
+		csv2delta(args)
 	},
+}
+
+func csv2delta(args []string) {
+	viper.AddConfigPath(args[0])
+	viper.SetConfigName("config")
+	err := viper.ReadInConfig()
+	if err != nil {
+		panic(fmt.Errorf("fatal error config file: %w", err))
+	}
+
+	fp := api.Processor{
+		WatcherImpl: bundledImpl.NewS3(),
+		IOEventImpl: []api.IOEvent{&bundledImpl.CsvToDelta{}, &bundledImpl.KafkaEmitEvent{}},
+	}
+
+	fp.Start()
+
 }
 
 func init() {
