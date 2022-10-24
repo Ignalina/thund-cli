@@ -1,0 +1,22 @@
+{
+
+  "s3": {
+    "endpoint": "apiminio.x14.se",
+    "usessl": true,
+    "bucketname": "landing",
+    "user": "secret" ,
+    "password" : "secret",
+    "watchfolder" : "/",
+    "markerfolder" : "/marker",
+    "excludefolder" : "/marker",
+    "gracemillisec": 1000
+
+  },
+
+  "streamcmd": {
+    "template": "echo \"{{PATH}}\""
+  }
+
+}
+
+

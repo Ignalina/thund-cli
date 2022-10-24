@@ -45,7 +45,7 @@ to quickly create a Cobra application.`,
 
 func csv2delta(args []string) {
 	viper.AddConfigPath(args[0])
-	viper.SetConfigName("config")
+	viper.SetConfigName(args[1])
 	err := viper.ReadInConfig()
 	if err != nil {
 		panic(fmt.Errorf("fatal error config file: %w", err))
@@ -53,7 +53,7 @@ func csv2delta(args []string) {
 
 	fp := api.Processor{
 		WatcherImpl: bundledImpl.NewS3(),
-		IOEventImpl: []api.IOEvent{&bundledImpl.CsvToDelta{}, &bundledImpl.KafkaEmitEvent{}},
+		IOEventImpl: []api.IOEvent{&bundledImpl.ArrayToRust{}},
 	}
 
 	fp.Start()

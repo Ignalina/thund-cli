@@ -3,9 +3,10 @@ module github.com/ignalina/thund-cli
 go 1.18
 
 require (
-	github.com/ignalina/thund v0.1.34
+	github.com/ignalina/thund v0.1.37
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/viper v1.12.0
+
 )
 
 require (
@@ -21,7 +22,7 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/hashicorp/go-uuid v1.0.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/ignalina/alloy v0.0.3 // indirect
+	github.com/ignalina/alloy v0.0.8 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jcmturner/aescts/v2 v2.0.0 // indirect
 	github.com/jcmturner/dnsutils/v2 v2.0.0 // indirect
